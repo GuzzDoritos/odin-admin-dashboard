@@ -2,11 +2,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
+img {
+    width: 100%;
+}
+
 .main-wrapper {
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 20em 1fr;
-    grid-template-rows: 12em 1fr;
+    grid-template-rows: auto 1fr;
 }
 
 .sidebar {
@@ -23,10 +27,9 @@
 .header {
     background: white;
     display: grid;
-}
-
-.main-content {
-    background: green;
+    grid-auto-rows: min-content;
+    padding: 0;
+    gap: 20px;
 }
 
 .logo > h1 {
@@ -71,8 +74,8 @@ svg path {
     display: flex;
     justify-content: space-between;
     height: fit-content;
-    padding: 20px 50px;
-    gap: 10px;
+    padding: 10px 50px 0 50px;
+    gap: 20px;
 }
 
 .top-head > .left-side, .top-head > .right-side {
@@ -81,7 +84,7 @@ svg path {
 }
 
 .top-head > .right-side {
-    gap: 40px;
+    gap: 30px;
 }
 
 .top-head > .left-side {
@@ -98,6 +101,21 @@ svg path {
     height: 30px;
 }
 
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: 60px;
+    border-radius: 1000px;
+    flex-shrink: 0;
+}
+
+.big-avatar {
+    width: 70px;
+    height: 70px;
+    background-size: 80px;
+}
+
 .icon-image {
     width: 25px;
 }
@@ -105,7 +123,7 @@ svg path {
 .bottom-head {
     display: flex;
     justify-content: space-between;
-    padding: 0px 70px;
+    padding: 0 70px 10px 70px;
 }
 
 .bottom-head > .right-side, .bottom-head > .left-side {
@@ -137,7 +155,77 @@ svg path {
     font-size: 24px;
 }
 
-.user-avatar-big {
-    display: flex;
-    align-items: center;
+.main-content {
+    background-color: #e2e8f0;
+    display: grid;
+    grid-template-columns: 1fr 18em;
+    grid-template-rows: 400px;
+    grid-template-areas: "main-container side-container"
+    "main-container side-container";
+    column-gap: 20px;
+    padding: 10px 20px;
+}
+
+.main-container {
+    grid-area: main-container;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    height: 200px;
+    background-color: white;
+    border-left: 10px #f0b429 solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.announcements-container, .trending-container {
+    background: white;
+    border-radius: 10px;
+}
+
+.announcements-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 10px 30px;
+}
+
+.announcement {
+    padding: 20px 0;
+    border-bottom: 2px rgb(221, 221, 221) solid;
+}
+
+.announcement:last-child {
+    border: none
+}
+
+.announcement h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.announcement p {
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.trending-container {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: 20px;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.user-description {
+    color: rgb(116, 116, 116);
 }
